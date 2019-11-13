@@ -1,0 +1,28 @@
+<div class="welcome-page">
+  <h2>Welcome to NayaLabs MultiStep</h2>
+  <form clrForm [clrLayout]="'vertical'" [formGroup]="form" (ngSubmit)="shipmentHandler()">
+    <!-- Introduction -->
+    <div class="intro" style="max-width: 360px;">
+      <clr-radio-container>
+        <label style="display: block; margin-bottom: .6rem">Are you currently accepting shipments?</label>
+
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio formControlName="accepts_shipments"
+                 value="true" name="accepts_shipments"/>
+          <label>Yes</label>
+        </clr-radio-wrapper>
+        <clr-radio-wrapper>
+          <input type="radio" clrRadio formControlName="accepts_shipments"
+                 value="false" name="accepts_shipments"/>
+          <label>No</label>
+        </clr-radio-wrapper>
+        <clr-control-error>Please select a shipment preference</clr-control-error>
+      </clr-radio-container>
+
+<!--      <button type="submit" [routerLink]="['/setup']"-->
+      <button type="submit"
+              class="btn btn-primary btn-block button-ui">Proceed
+      </button>
+    </div>
+  </form>
+</div>
