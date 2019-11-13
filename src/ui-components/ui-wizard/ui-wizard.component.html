@@ -1,1 +1,128 @@
-<p>ui-wizard works!</p>
+<div class="card wizard-ui--wrapper">
+  <!-- #Navigation steps -->
+  <nav class="wizard-ui__navigator">
+    <h3 class="title">NayaLabs Setup</h3>
+    <div class="wizard-ui__navigator--steps">
+      <ul class="list">
+        <li *ngFor="let step of steps; let i = index"
+            class="item" [ngClass]="{'active': currentIndex === i}">
+          <button [disabled]="currentIndex !== i"
+                  type="button" class="btn btn-link">{{ i }}. {{ step.title }}</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- #Step Details -->
+  <form clrForm [formGroup]="form" (ngSubmit)="register()"
+        class="wizard-ui__content">
+    <div class="header">
+      <h3 class="title">{{ steps[currentIndex].title }}</h3>
+    </div>
+
+    <div class="body">
+      <div *ngIf="currentIndex === 0"
+           class="slide">
+        <clr-input-container>
+          <label>Full name</label>
+          <input clrInput type="text" name="name" formControlName="name"/>
+          <clr-control-error>Your full name is required</clr-control-error>
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Email</label>
+          <input clrInput type="email" name="email" formControlName="email"/>
+          <clr-control-error>Email address is required</clr-control-error>
+        </clr-input-container>
+
+        <clr-input-container>
+          <label>Password</label>
+          <input clrInput type="password" name="password" formControlName="password"/>
+          <clr-control-error>A password of at least 8 characters is required</clr-control-error>
+        </clr-input-container>
+
+
+        <clr-input-container>
+          <label>Confirm password</label>
+          <input clrInput type="password" name="password_confirm" formControlName="password_confirm"/>
+          <clr-control-error>Passwords do not match</clr-control-error>
+        </clr-input-container>
+      </div><!-- end #account-info -->
+
+      <div *ngIf="currentIndex === 1"
+           class="slide">
+        <clr-date-container>
+          <label>Date of birth</label>
+          <input type="date" clrDate name="date_of_birth" formControlName="date_of_birth">
+          <clr-control-error>Please select your date of birth</clr-control-error>
+        </clr-date-container>
+
+        <clr-input-container>
+          <label>Phone number</label>
+          <input clrInput type="text" name="phone_number" formControlName="phone_number"/>
+          <clr-control-error>Phone number is required</clr-control-error>
+        </clr-input-container>
+      </div><!-- end #personal info -->
+
+      <ng-container *ngIf="currentIndex === 2" formGroupName="address">
+        <div class="slide">
+          <clr-input-container>
+            <label>Address Line 1</label>
+            <input clrInput type="text" name="address_line_1" formControlName="address_line_1"/>
+            <clr-control-error>Address Line 1 is required</clr-control-error>
+          </clr-input-container>
+
+          <clr-input-container>
+            <label>Address Line 2</label>
+            <input clrInput type="text" name="address_line_2" formControlName="address_line_2"/>
+            <clr-control-error>Address Line 2 is required</clr-control-error>
+          </clr-input-container>
+
+          <div class="clr-row">
+            <div class="clr-col-3">
+              <clr-input-container>
+                <label>Postal code</label>
+                <input clrInput type="text" name="postal_code" formControlName="postal_code"/>
+                <clr-control-error>Postal code is required</clr-control-error>
+              </clr-input-container>
+            </div>
+            <div class="clr-col-6 clr-offset-1">
+              <clr-input-container>
+                <label>City</label>-->
+                <input clrInput type="text" name="city" formControlName="city"/>
+                <clr-control-error>City is required</clr-control-error>
+              </clr-input-container>
+            </div>
+          </div>
+
+          <clr-input-container>
+            <label>State</label>
+            <input clrInput type="text" name="state" formControlName="state"/>
+            <clr-control-error>State is required</clr-control-error>
+          </clr-input-container>
+        </div>
+      </ng-container><!-- end #addresses -->
+
+      <div class="slide" *ngIf="currentIndex === 3">
+        <clr-radio-container>
+          <label>Select your preferred subscription plan</label>
+
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio formControlName="plan_type" value="monthly" name="plan_type"/>
+            <label>Monthly</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio formControlName="plan_type" value="annually" name="plan_type"/>
+            <label>Annually</label>
+          </clr-radio-wrapper>
+          <clr-control-error>Please select a plan</clr-control-error>
+        </clr-radio-container>
+      </div><!-- end #plan -->
+    </div>
+
+    <div class="footer">
+      <button class="btn btn-outline">Previous</button>
+      <button class="btn btn-primary">Next</button>
+    </div>
+  </form>
+</div>

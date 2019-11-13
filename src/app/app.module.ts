@@ -1,14 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
-import { ClarityModule } from '@clr/angular'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiModule } from '../ui-components/ui.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { SetupComponent } from './setup/setup.component';
+import { UserValidators } from '../shared/_validators/user.validators';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +18,10 @@ import { SetupComponent } from './setup/setup.component';
     ReactiveFormsModule,
     UiModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    UserValidators
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

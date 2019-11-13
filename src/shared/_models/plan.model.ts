@@ -1,4 +1,9 @@
+const enum Plans {
+  Monthly = 'monthly',
+  Annually = 'annually'
+}
+
 export interface Plan {
-  monthly?: string;
-  annually?: string;
+  monthly?: Plans.Monthly;
+  annually?: Plans.Annually;
 }

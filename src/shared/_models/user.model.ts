@@ -6,6 +6,7 @@ export interface User {
   email?: string;
   password?: string;
   date_of_birth?: string;
+  phone_number?: string;
   gender?: string;
   address?: Address;
   accepts_shipments?: boolean;

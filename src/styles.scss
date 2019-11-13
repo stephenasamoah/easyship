@@ -1,3 +1,12 @@
+// ***************************
+// #Variables
+// ***************************/
+$color-active: #d8e3e9;
+$color-grey: #e3e3e3;
+$color-grey-lighter: #fafafa;
+$color-black: #000;
+$color-white: #fff;
+
 .welcome-page {
   display: flex;
   flex-direction: column;
@@ -6,4 +15,151 @@
 
 .button-ui {
   margin-top: 2.4rem;
+}
+
+// ***************************
+// #Wizard
+// ***************************/
+.wizard-ui {
+  &--wrapper {
+    display: flex;
+    width: 57.6rem;
+    height: 75vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.4rem;
+
+    flex: 1 1 100%;
+
+    background-color: $color-white;
+  }
+
+  /**
+  * Navigator
+  */
+  &__navigator {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    border-right: 1px solid $color-grey;
+    width: 34%;
+    max-width: 15.6rem;
+    height: 100%;
+    background-color: $color-grey-lighter;
+
+    /* === #Title === */
+    .title {
+      margin-top: 0;
+      padding: 1.2rem .6rem 1.2rem 1.2rem;
+      flex: 0 0 auto;
+    }
+
+    /* === #Steps === */
+    &--steps {
+      display: block;
+      width: 100%;
+      padding-left: 1.2rem;
+      flex: 1 1 auto;
+      font-size: .7rem;
+
+      .list {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        counter-reset: a;
+        white-space: nowrap;
+        list-style-type: none;
+
+        .item {
+          display: block;
+          margin: 0 0 -.05rem;
+          padding: .3rem 0 .3rem .4rem;
+          box-shadow: 3px 0 0 $color-grey inset;
+
+          button {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            display: flex;
+            width: 100%;
+            margin: 0;
+            padding: 0 .15rem 0 .5rem;
+            align-items: center;
+            color: inherit;
+            letter-spacing: normal;
+            font-size: .7rem;
+            text-transform: none;
+
+          }
+
+          &.active {
+            color: $color-black;
+            font-weight: 500;
+
+            button {
+              background-color: $color-active;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+  * Content
+  */
+  &__content {
+    display: flex;
+    width: 66%;
+    height: initial;
+    padding: 0;
+    flex: 2 2 auto;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .header {
+      display: flex;
+      width: 100%;
+      padding: 1.2rem .95rem .3rem 1.2rem;
+      flex: 0 0 auto;
+      align-items: flex-start;
+      background-color: transparent;
+
+      h3 {
+        margin-top: 0;
+      }
+    }
+
+    .body {
+      max-height: 100%;
+      flex: 1 1 auto;
+      width: 100%;
+      padding: 0 .15rem;
+      overflow: hidden auto;
+
+      .slide {
+        display: block;
+        padding: .9rem 1.2rem 1.2rem;
+
+        .clr-control-container {
+          width: 100%;
+
+          input {
+            width: 100%;
+            max-width: 16rem;
+          }
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      width: 100%;
+      min-height: 4.2rem;
+      height: 4.2rem;
+      padding: 1.2rem .6rem 0;
+      flex: 0 0 4.2rem;
+      justify-content: flex-end;
+    }
+  }
 }
