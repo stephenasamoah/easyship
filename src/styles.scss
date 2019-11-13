@@ -6,6 +6,7 @@ $color-grey: #e3e3e3;
 $color-grey-lighter: #fafafa;
 $color-black: #000;
 $color-white: #fff;
+$color-success: #61b715;
 
 .welcome-page {
   display: flex;
@@ -100,6 +101,11 @@ $color-white: #fff;
               background-color: $color-active;
             }
           }
+
+          &.complete {
+            box-shadow: 3px 0 0 $color-success inset;
+            transition: box-shadow .2s ease-in;
+          }
         }
       }
     }
@@ -148,6 +154,10 @@ $color-white: #fff;
             width: 100%;
             max-width: 16rem;
           }
+        }
+
+        > :first-child {
+          margin-top: 0;
         }
       }
     }

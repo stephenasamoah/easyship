@@ -1,9 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ControlLink } from '../../shared/_models/control-link';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../shared/_models/user.model';
-import { Address } from '../../shared/_models/address.model';
-import { Plan } from '../../shared/_models/plan.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserValidators } from '../../shared/_validators/user.validators';
 
 @Component({
@@ -11,9 +8,12 @@ import { UserValidators } from '../../shared/_validators/user.validators';
   templateUrl: './ui-wizard.component.html',
   styleUrls: ['./ui-wizard.component.scss']
 })
-export class UiWizardComponent implements OnInit {
-  @Input() user: User;
-  form: FormGroup;
+export class UiWizardComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+
+  @Input() form: FormGroup;
+
+  stepsTracker: Array<() => boolean> = [];
 
   currentIndex = 0;
   steps: ControlLink[] = [];
@@ -34,12 +34,13 @@ export class UiWizardComponent implements OnInit {
   ngOnInit() {
   }
 
-  private createForm(user?: User): FormGroup {
-    user = user || {} as User;
-    user.address = user.address || {} as Address;
-    user.plan_type = user.plan_type || {} as Plan;
+  private personalInfoValidator() {
+    return this.form.get('personal_info').valid;
+  }
 
-    const confirmPassword = this.uv.matchPassword('password', 'password_confirm');
+  private addressValidator() {
+    return this.form.get('address').valid;
+  }
 
     return this.fb.group({
       name: ['', Validators.required],

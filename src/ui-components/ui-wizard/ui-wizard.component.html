@@ -14,7 +14,8 @@
   </nav>
 
   <!-- #Step Details -->
-  <form clrForm [formGroup]="form" (ngSubmit)="register()"
+  <form clrForm clrLayout="vertical"
+        [formGroup]="form" (ngSubmit)="register()"
         class="wizard-ui__content">
     <div class="header">
       <h3 class="title">{{ steps[currentIndex].title }}</h3>
@@ -51,6 +52,27 @@
 
       <div *ngIf="currentIndex === 1"
            class="slide">
+        <clr-radio-container>
+          <label>Gender</label>
+
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio formControlName="gender"
+                   value="female" name="gender"/>
+            <label>Female</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio formControlName="gender"
+                   value="male" name="gender"/>
+            <label>Male</label>
+          </clr-radio-wrapper>
+          <clr-radio-wrapper>
+            <input type="radio" clrRadio formControlName="gender"
+                   value="other" name="gender"/>
+            <label>Prefer not to say</label>
+          </clr-radio-wrapper>
+          <clr-control-error>Please select your gender</clr-control-error>
+        </clr-radio-container>
+
         <clr-date-container>
           <label>Date of birth</label>
           <input type="date" clrDate name="date_of_birth" formControlName="date_of_birth">
@@ -96,7 +118,7 @@
           </div>
 
           <clr-input-container>
-            <label>State</label>
+            <label>State/Province</label>
             <input clrInput type="text" name="state" formControlName="state"/>
             <clr-control-error>State is required</clr-control-error>
           </clr-input-container>
