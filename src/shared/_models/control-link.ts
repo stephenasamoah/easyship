@@ -1,4 +1,5 @@
 export interface ControlLink {
   title?: string;
-  active?: boolean;
+  completed?: boolean;
+  path?: string;
 }

@@ -1,0 +1,24 @@
+<div class="success">
+  <h2>Your account has successfully been created!</h2>
+  <clr-icon shape="success-standard" style="width: 4.8rem; height: 4.8rem"></clr-icon>
+
+  <section *ngIf="user"
+           style="width: 24rem">
+    <div class="card">
+      <div class="card-header">
+        Account details
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <pre>
+            {{ user | json }}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button class="btn btn-outline btn-link"
+          [routerLink]="['/']">Back to home
+  </button>
+</div>

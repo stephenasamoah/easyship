@@ -173,3 +173,16 @@ $color-success: #61b715;
     }
   }
 }
+
+.success {
+  @extend .welcome-page;
+
+
+  svg {
+    fill: $color-success;
+  }
+
+  button {
+    margin-top: 2.4rem;
+  }
+}

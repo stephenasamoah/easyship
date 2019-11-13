@@ -40,7 +40,7 @@ export class WelcomeComponent implements OnInit {
     }
 
     this.shipmentStatus = this.form.controls.accepts_shipments.value;
-    this.us.setUserData(this.shipmentStatus);
+    this.us.setShipmentData(this.shipmentStatus);
 
     this.router.navigate(['/setup']);
   }

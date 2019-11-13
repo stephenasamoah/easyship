@@ -69,6 +69,16 @@ export class UiWizardComponent implements OnInit, OnDestroy {
     });
   }
 
+  maskDob(e: any) {
+    const dateInput = e.target.value;
+
+    if (dateInput.match(/^\d{2}$/) !== null) {
+      e.target.value = dateInput + '/';
+    } else if (dateInput.match(/^\d{2}\/\d{2}$/) !== null) {
+      e.target.value = dateInput + '/';
+    }
+  }
+
   register() {
     console.log(this.form.value);
   }
