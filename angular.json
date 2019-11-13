@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "naya-multistep": {
+    "easyship": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/naya-multistep",
+            "outputPath": "dist/easyship",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -77,22 +77,22 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "naya-multistep:build"
+            "browserTarget": "easyship:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "naya-multistep:build:production"
+              "browserTarget": "easyship:build:production"
             },
             "hmr": {
               "hmr": true,
-              "browserTarget": "naya-multistep:build:hmr"
+              "browserTarget": "easyship:build:hmr"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "naya-multistep:build"
+            "browserTarget": "easyship:build"
           }
         },
         "test": {
@@ -122,16 +122,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "naya-multistep:serve"
+            "devServerTarget": "easyship:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "naya-multistep:serve:production"
+              "devServerTarget": "easyship:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "naya-multistep"
+  "defaultProject": "easyship"
 }
